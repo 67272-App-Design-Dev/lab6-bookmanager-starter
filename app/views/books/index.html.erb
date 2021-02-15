@@ -16,7 +16,7 @@
     <td><%= link_to book.title, book_path(book) %></td>
     <td><%= book.category.name %></td>
 		<td><%= book.published_date.year %></td>
-		<td><%= book.authors.alphabetical.first.name %></td>
+		<td><%= if book.authors.count > 0 then book.authors.alphabetical.first.name else "None" end %></td>
 		<td align="right"><%= number_with_delimiter(book.units_sold) %></td>
     <td><%= link_to 'Edit', edit_book_path(book) %></td>
     <td><%= link_to 'Destroy', book, confirm: 'Are you sure?', method: :delete %></td>
