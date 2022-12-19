@@ -1,49 +1,48 @@
-require 'test_helper'
+require "test_helper"
 
-class BooksControllerTest < ActionController::TestCase
+class BooksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @book = books(:one)
   end
 
   test "should get index" do
-    get :index
+    get books_url
     assert_response :success
-    assert_not_nil assigns(:books)
   end
 
   test "should get new" do
-    get :new
+    get new_book_url
     assert_response :success
   end
 
   test "should create book" do
-    assert_difference('Book.count') do
-      post :create, book: { category_id: @book.category_id, contract_date: @book.contract_date, notes: @book.notes, proposal_date: @book.proposal_date, published_date: @book.published_date, title: @book.title, units_sold: @book.units_sold }
+    assert_difference("Book.count") do
+      post books_url, params: { book: { active: @book.active, category_id: @book.category_id, contract_date: @book.contract_date, notes: @book.notes, proposal_date: @book.proposal_date, published_date: @book.published_date, title: @book.title, units_sold: @book.units_sold } }
     end
 
-    assert_redirected_to book_path(assigns(:book))
+    assert_redirected_to book_url(Book.last)
   end
 
   test "should show book" do
-    get :show, id: @book
+    get book_url(@book)
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @book
+    get edit_book_url(@book)
     assert_response :success
   end
 
   test "should update book" do
-    patch :update, id: @book, book: { category_id: @book.category_id, contract_date: @book.contract_date, notes: @book.notes, proposal_date: @book.proposal_date, published_date: @book.published_date, title: @book.title, units_sold: @book.units_sold }
-    assert_redirected_to book_path(assigns(:book))
+    patch book_url(@book), params: { book: { active: @book.active, category_id: @book.category_id, contract_date: @book.contract_date, notes: @book.notes, proposal_date: @book.proposal_date, published_date: @book.published_date, title: @book.title, units_sold: @book.units_sold } }
+    assert_redirected_to book_url(@book)
   end
 
   test "should destroy book" do
-    assert_difference('Book.count', -1) do
-      delete :destroy, id: @book
+    assert_difference("Book.count", -1) do
+      delete book_url(@book)
     end
 
-    assert_redirected_to books_path
+    assert_redirected_to books_url
   end
 end

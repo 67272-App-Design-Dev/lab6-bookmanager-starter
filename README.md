@@ -1,13 +1,24 @@
-# Part 1
+Lab 6: Views and Controllers
+===
+
+Objectives
 ---
 
-1. For this project we are using another version of the BookManager application we've developed previously. To get a copy of this new project, use git to clone the [BookManager_3 project on github](https://github.com/67272-App-Design-Dev/lab6-bookmanager-starter) and review the contents before proceeding.
+- help students understand how controllers work
+- help students learn to work with views
+- help students integrate Materialize CSS into projects
+
+<hr />
+
+# Part 1
+
+1. For this project we are using another version of the BookManager application we've developed previously. To get a copy of this new project, use git to clone the [BookManager_3 project on github](https://github.com/67272-App-Design-Dev/lab6-bookmanager-starter) and review the contents before proceeding. Do not use your own lab 3 for your starter code as the models are slightly different. 
 
 2. Run `bundle install` from the terminal to install the new gems used in this project.
 
     **Commit these changes to git.**
 
-3. Run `git branch` to see that you are on the master branch. **Checkout to a new branch named `views_controllers`**. Run the `rails db:migrate` command to generate the development database and then run `rails db:populate` to add records to your development database. **Start the server and verify that the basic app is running by looking at the various book lists.** (There are no controllers yet for authors and categories, so limit yourself to books for now.)
+3. Run `git branch` to see that you are on the master branch. **Checkout to a new branch named `views_controllers`**. Run the `rails db:migrate` command to generate the development database. **Start the server and verify that the basic app is running by looking at the various book routes.** (There are no controllers yet for authors and categories, so limit yourself to books for now.)
 
 4. The first thing to do is to build a controller for `authors`. Open the `authors_controller.rb` file inside of `app/controllers` and within the class definition, add the following code to restrict the types of parameters we will accept from users.
 
@@ -87,12 +98,10 @@
 
 # <span class="mega-icon mega-icon-issue-opened"></span>Stop
 
-Show a TA that you have completed the first part. Make sure the TA initials your sheet.
-
 * * *
 
 # Part 2
----
+
 1.  As you can see, with essentially no CSS, the app functions appropriately, but does not look particularly attractive and seems unprofessional. We are going to use [materialize](https://github.com/mkhairi/materialize-sass) - to help us fix this up. Begin by going into your gemfile and adding:
 
     ```ruby
@@ -193,12 +202,10 @@ Make other customizations to tables as you wish -- see [http://materializecss.co
 
 # <span class="mega-icon mega-icon-issue-opened"></span>Stop
 
-Show a TA that you have completed the second part. Make sure the TA initials your sheet.
 
 * * *
 
 # Part 3
----
 
 1. First to have nice form fields for Materialize we need to change the class from **`field`** to **`input-field`**. Here is an example:
  
@@ -247,7 +254,7 @@ Show a TA that you have completed the second part. Make sure the TA initials you
 4. To make sure that `units_sold` field is formatted correctly to accept a numerical input change the field from `text_field` to `number_field` with the following:
 
     ```erb
-    <div class="field">
+    <div class="input-field">
         <%= f.label :units_sold %>
         <%= f.number_field :units_sold %>
     </div>
@@ -317,7 +324,5 @@ Show a TA that you have completed the second part. Make sure the TA initials you
     There is obviously so much more to Materialize, but this is a good introduction to using it in a dynamic Rails project that could prove helpful as you start working on Phase 3\. Please note that you will have to customize Materialize if you choose to use it in Phase 3 so that it has a distinctive look (expect a small grade penalty for a straight deploy of the Materialize CSS), but this is relatively easy to do as we saw at the beginning.
 
 # <span class="mega-icon mega-icon-issue-opened"></span>Stop
-
-Show a TA that you have the book form is working and formatted properly. Also show the TA your git log so he/she can see that you've made regular commits and have merged the final results back to master. Make sure the TA initials your sheet.
 
 * * * 

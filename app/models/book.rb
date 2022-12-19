@@ -1,4 +1,4 @@
-class Book < ActiveRecord::Base
+class Book < ApplicationRecord
   # Relationships
   belongs_to :category
   has_many :book_authors
