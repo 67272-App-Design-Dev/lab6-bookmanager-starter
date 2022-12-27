@@ -45,7 +45,6 @@ group :development, :test do
   gem 'hirb'
   gem 'populator3'
   gem 'wirble'
-  gem 'thin'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
