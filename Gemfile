@@ -5,8 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '3.1.2'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.6'
+gem 'rails', '7.0.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -39,8 +41,8 @@ gem 'simple_form'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'shoulda'
-  gem 'shoulda-matchers'
+  gem 'shoulda-context', '2.0.0'
+  gem 'shoulda-matchers', '5.0.0'
   gem 'faker'
   gem 'hirb'
   gem 'populator3'
