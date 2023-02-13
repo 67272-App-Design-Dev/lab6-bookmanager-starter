@@ -1,4 +1,4 @@
-class Author < ActiveRecord::Base
+class Author < ApplicationRecord
   # Relationships
   has_many :book_authors
   has_many :books, through: :book_authors

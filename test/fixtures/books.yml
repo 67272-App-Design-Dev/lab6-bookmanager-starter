@@ -1,19 +1,21 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
   title: MyString
-  category_id: 1
+  category: one
+  proposal_date: 2022-12-18
+  contract_date: 2022-12-18
+  published_date: 2022-12-18
   units_sold: 1
-  proposal_date: 2014-02-12
-  contract_date: 2014-02-12
-  published_date: 2014-02-12
   notes: MyText
+  active: false
 
 two:
   title: MyString
-  category_id: 1
+  category: two
+  proposal_date: 2022-12-18
+  contract_date: 2022-12-18
+  published_date: 2022-12-18
   units_sold: 1
-  proposal_date: 2014-02-12
-  contract_date: 2014-02-12
-  published_date: 2014-02-12
   notes: MyText
+  active: false
