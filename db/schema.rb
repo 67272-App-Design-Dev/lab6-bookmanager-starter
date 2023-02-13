@@ -54,8 +54,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_18_202634) do
     t.string "email"
     t.string "password_hash"
     t.string "password_salt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   add_foreign_key "book_authors", "authors"

@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BookManager :: <%= controller.controller_name.capitalize %> - <%= controller.action_name.capitalize %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div id="container">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
+  <head>
+    <title>Lab4BookmanagerUpdated</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
     <%= yield %>
-  </div>
-</body>
-<%= javascript_include_tag "application" %>
+  </body>
 </html>
