@@ -14,7 +14,7 @@ Objectives
 
 1. For this project we are using another version of the BookManager application we've developed previously. To get a copy of this new project, use git to clone the [BookManager_3 project on github](https://github.com/67272-App-Design-Dev/lab6-bookmanager-starter) and review the contents before proceeding. Do not use your own lab 3 for your starter code as the models are slightly different. 
 
-2. Run `bundle install` from the terminal to install the new gems used in this project.
+2. Run `bundle install` from the terminal to install the new gems used in this project. Then run `rails generate validates_timeliness:install` to install the updated `validates_timeliness` gem.
 
     **Commit these changes to git.**
 
@@ -94,7 +94,7 @@ Objectives
 
 10. Our authors controller is good, but without routes to direct to these actions, they are pretty useless. We could generate the seven routes manually or take advantage of Rails built-in shortcut that was demonstrated in class. Go to the `config/routes.rb` file and add `resources :authors` right below similar code for books -- this will generate the seven standard routes we need to use this controller properly. Restart your server and you should be able to use the authors controller!
 
-11. Verify that the routes and controller are working in the browser and then commit your changes to git if you have not done so already. (Hopefully you have...) If time allows, follow a similar procedure to build your categories controller. You will need to add a resources line to your routes file for categories, and create the same set of methods in the categories controller.
+11. Verify that the routes and controller are working in the browser and then commit your changes to git if you have not done so already. (Hopefully you have...) **Follow a similar procedure to build your categories controller**. You will need to add a resources line to your routes file for categories, and create the same set of methods in the categories controller.
 
 # <span class="mega-icon mega-icon-issue-opened"></span>Stop
 
@@ -105,10 +105,11 @@ Objectives
 1.  As you can see, with essentially no CSS, the app functions appropriately, but does not look particularly attractive and seems unprofessional. We are going to use [materialize](https://github.com/mkhairi/materialize-sass) - to help us fix this up. Begin by going into your gemfile and adding:
 
     ```ruby
+    gem 'sassc-rails'
     gem 'materialize-sass'
     ```
 
-    underneath the `simple_form` gem. Now run `bundle install` to install the new materialize gem in this project.
+    Now run `bundle install` to install the new materialize gem in this project.
 
 2. Before we see any changes we need to update our files. Create a new file in `app/assets/stylesheets` called `application.scss`, add the line `@import "materialize";`, and save the file. **We also need to delete the old `application.css` file** that was there so that the old css file does not override our new materialize css. Now we can **restart the server** and note the changes in formatting.
 
@@ -169,7 +170,7 @@ Objectives
           <a href="/" class="brand-logo">BookManager</a>
           <ul class="right">
             <!-- you can add a categories dropdown here if you built this controller -->
-            <li><a class="dropdown-trigger" href="/authors" data-target="authors-dropdown">Authors<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="/authors" data-target="authors-dropdown">Authors<span class="material-icons">arrow_drop_down</span></a></li>
           </ul>
         </div>
       </nav>
@@ -190,7 +191,7 @@ Objectives
 
     View in the browser to see these changes. **Now add a similar dropdown to view the Books!** Be sure to commit your files if you haven't already.
 
-    If you wrote the categories controller, go ahead and implement a dropdown for that controller too.
+    Go ahead and implement a dropdown for that controller too.
 
     Let's try to change the color scheme ourselves. The materialize colors can be reset by adding: `$primary-color: #FFC107;` above `@import materialize` in the `application.scss` file. For your phase you may want to check out [Material Palette](https://www.materialpalette.com) to select your favorite colors and download color schemes for your app.
 
@@ -222,7 +223,7 @@ Make other customizations to tables as you wish -- see [http://materializecss.co
     ```erb
     <h2>Book details:</h2>
     <div class="input-field">
-      <%= f.label :title %>
+      <%= f.label :title %><br />
       <%= f.text_field :title %>
     </div>
     ```
@@ -235,7 +236,7 @@ Make other customizations to tables as you wish -- see [http://materializecss.co
 
     ```erb
     <div class="input-field">
-      <%= f.label :proposal_date %>
+      <%= f.label :proposal_date %><br />
       <%= f.text_field :proposal_date, prompt: "Proposal Date", class: "datepicker", :value => (f.object.proposal_date.strftime('%B %d, %Y') if f.object.proposal_date != nil)%>
     </div>
     ```
@@ -255,7 +256,7 @@ Make other customizations to tables as you wish -- see [http://materializecss.co
 
     ```erb
     <div class="input-field">
-        <%= f.label :units_sold %>
+        <%= f.label :units_sold %><br />
         <%= f.number_field :units_sold %>
     </div>
     ```
@@ -264,7 +265,7 @@ Make other customizations to tables as you wish -- see [http://materializecss.co
 
     ```erb
     <div class="input-field">
-      <%= f.label :notes %><br />
+      <%= f.label :notes %><br /><br />
       <%= f.text_area :notes, :class=>"materialize-textarea"%>
     </div>
     ```
