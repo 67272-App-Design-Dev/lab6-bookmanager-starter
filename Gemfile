@@ -60,7 +60,7 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'will_paginate'
 gem 'simple_form'
-
+gem 'jquery-rails', '4.3.1'
 gem 'materialize-sass'
 
 
