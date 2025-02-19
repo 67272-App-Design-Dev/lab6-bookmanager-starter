@@ -50,14 +50,27 @@
 					<%= f.text_area :notes, :class=>"materialize-textarea"%>
 				</div>
 
+				<h5>Add author(s):</h5>
+<% count = 0%>
+<div class="row">
+  <% for author in Author.active.alphabetical  %>
+    <% if count % 4 == 0%>
+      </div>
+      <div class="row">
+    <% end %>
+    <% count += 1 %>
+    <div class="col s3">
+      <label>
+        <%= f.check_box :author_ids, {:multiple => true, :id=>author.id}, author.id, nil %>
+        <span><%= author.name %></span>
+      </label>
+    </div>
+  <% end %>
+</div>
+
 			  <div class="actions">
 			    <%= f.submit %>
 			  </div>
-			</td>
-			<td width="25">&nbsp;</td>
-			<td>
-				<h2>Add author(s):</h2>
-				<%= render :partial => 'authors_checkboxes' %>
 			</td>
 		</tr>
 	</table>
