@@ -11,7 +11,30 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="row">
+      <div class="col s8 center">
+        <!-- MAIN CONTENT GOES HERE -->
+        <%= yield %>
+        <%= javascript_include_tag "application" %>
+      </div>
+
+      <div class="col s1">
+      </div>
+
+      <div class="col s3">
+        <!-- SIDEBAR CONTENT GOES HERE -->
+        <%= render partial: 'partials/quick_links' %>
+      </div>
+
+    </div>
+
+    <footer>
+      <div class="row">
+        <div class="col s8 center">
+          <%= render partial: 'partials/footer' %>
+        </div>
+      </div> 
+    </footer>  
   </body>
   <%= javascript_include_tag "application" %>
 </html>
