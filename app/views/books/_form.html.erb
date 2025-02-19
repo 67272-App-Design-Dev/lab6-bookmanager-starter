@@ -24,11 +24,11 @@
 			    <%= f.label :category_id %><br />
 			    <%= f.collection_select :category_id, Category.alphabetical, :id, :name, :prompt => "Select ..." %>
 			  </div>
-
-				<div class="input-field">
-			    <%= f.label :proposal_date %><br />
-			    <%= f.date_select :proposal_date, :order => [:month, :day, :year] %>
-			  </div>
+			  
+			  <div class="input-field">
+  				<%= f.label :proposal_date %><br />
+  				<%= f.text_field :proposal_date, prompt: "Proposal Date", class: "datepicker", :value => (f.object.proposal_date.strftime('%B %d, %Y') if f.object.proposal_date != nil)%>
+				</div>
 
 				<div class="input-field">
 			    <%= f.label :contract_date %><br />
