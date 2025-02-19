@@ -28,6 +28,10 @@
         <!-- MAIN CONTENT GOES HERE -->
         <%= yield %>
         <%= javascript_include_tag "application" %>
+
+        <% flash.each do |message_type, message| %>
+          <%= javascript_tag "M.toast({html: '<p>#{message}</p>', displayLength: 4000})" %>
+        <% end %>
       </div>
 
       <div class="col s1">
