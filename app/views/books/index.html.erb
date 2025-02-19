@@ -12,7 +12,7 @@
   </tr>
 
 <% @books.each do |book| %>
-  <tr>
+  <tr class="striped">
     <td><%= link_to book.title, book_path(book) %></td>
     <td><%= book.category.name %></td>
 		<td><%= book.published_date.year %></td>
