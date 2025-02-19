@@ -3,3 +3,8 @@ $button-height: 26px;
 $table-striped-color: #cfd8dc;
 @import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+#toast-container {
+    left: 1%;
+    right: auto !important;
+}
